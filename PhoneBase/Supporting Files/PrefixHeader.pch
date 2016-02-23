@@ -1,0 +1,23 @@
+//
+//  PrefixHeader.pch
+//  PhoneBase
+//
+//  Created by Robyn Van Deventer on 4/02/2016.
+//  Copyright © 2016 Robyn Van Deventer. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <MapKit/MapKit.h>
+#import "NSLayoutConstraint+Extensions.h"
+#import <MagicalRecord/MagicalRecord.h>
+#import <CoreLocation/CoreLocation.h>
+#import "LocationManager.h"
+#import "NSError+Extended.h"
+#import "AppearanceUtilities.h"
+#import "FirebaseManager.h"
+
+#endif /* PrefixHeader_pch */
