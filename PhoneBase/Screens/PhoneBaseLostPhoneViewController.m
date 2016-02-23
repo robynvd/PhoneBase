@@ -144,11 +144,11 @@ static CGFloat const VerticalSpacing = 75;
 {
     [[FirebaseManager sharedManager] updateStatus:self.lostFoundSwitch.on ofPhone:self.phone.uniqueID withCompletionHandler:^(BOOL success, NSError *error)
     {
-        if (!success && error)
+        if (error)
         {
             [self createAlertControllerWithError:error];
         }
-        else if (!success && !error)
+        else if (!success)
         {
             [self createAlertControllerWithError:[NSError errorWithMessage:@"Something unexpected has occurred"]];
         }

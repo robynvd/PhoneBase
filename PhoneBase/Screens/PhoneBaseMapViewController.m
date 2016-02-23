@@ -160,11 +160,11 @@ static CGFloat const HeaderHeight = 20;
 {
     [[FirebaseManager sharedManager] addLostPhoneToDatabaseWithCompletionHandler:^(BOOL success, NSError *error)
     {
-        if (!success && error)
+        if (error)
         {
             [self createAlertControllerWithError:error];
         }
-        else if (!success && !error)
+        else if (!success)
         {
             [self createAlertControllerWithError:[NSError errorWithMessage:@"Something unexpected has occurred"]];
         }
