@@ -19,13 +19,15 @@ static CGFloat const HeaderHeight = 20;
 
 @interface PhoneBaseMapViewController() <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, NSFetchedResultsControllerDelegate>
 
+//Map view properties
 @property (nonatomic, strong) MKMapView *mapView;
+
+//Table view properties
 @property (nonatomic, strong) UITableView *lostPhonesTableView;
-@property (nonatomic, strong) Phone *phone;
-@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic) BOOL isCollapsed;
 @property (nonatomic, strong) NSLayoutConstraint *tableViewHeightConstraint;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) PBTableHeaderView *headerView;
+@property (nonatomic) BOOL isCollapsed;
 
 @end
 
@@ -44,7 +46,8 @@ static CGFloat const HeaderHeight = 20;
                                                          delegate:self];
     
     NSError *error;
-    if (![[self fetchedResultsController] performFetch:&error]) {
+    if (![[self fetchedResultsController] performFetch:&error])
+    {
         // Update to handle the error appropriately.
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
@@ -155,7 +158,8 @@ static CGFloat const HeaderHeight = 20;
  */
 - (void)addLostPhone
 {
-    [[FirebaseManager sharedManager] addLostPhoneToDatabaseWithCompletionHandler:^(BOOL success, NSError *error) {
+    [[FirebaseManager sharedManager] addLostPhoneToDatabaseWithCompletionHandler:^(BOOL success, NSError *error)
+    {
         if (!success && error)
         {
             [self createAlertControllerWithError:error];
@@ -219,10 +223,11 @@ static CGFloat const HeaderHeight = 20;
     else
     {
         PBAnnotationView *annotationView = (PBAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:ReuseIdentifier];
-        if (!annotationView) {
-            annotationView = [[PBAnnotationView alloc] initWithAnnotation:annotation
-                                                                     reuseIdentifier:ReuseIdentifier];
+        if (!annotationView)
+        {
+            annotationView = [[PBAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:ReuseIdentifier];
         }
+        
         __weak PhoneBaseMapViewController *weakself = self;
         annotationView.onTap = ^{
             Phone *phone = [Phone MR_findFirstWithPredicate:[NSPredicate predicateWithFormat:@"uniqueID == %@", annotation.title]];
@@ -318,8 +323,7 @@ static CGFloat const HeaderHeight = 20;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ReuseIdentifier];
     }
     
-    [self configureCell:cell
-            atIndexPath:indexPath];
+    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
@@ -372,8 +376,8 @@ static CGFloat const HeaderHeight = 20;
 {
     self.headerView = [[PBTableHeaderView alloc] init];
     [self.headerView.headerButton addTarget:self
-                                action:@selector(collapseExpandLostPhonesTableView)
-                      forControlEvents:UIControlEventTouchUpInside];
+                                     action:@selector(collapseExpandLostPhonesTableView)
+                           forControlEvents:UIControlEventTouchUpInside];
 
     return self.headerView;
 }

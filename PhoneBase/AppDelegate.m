@@ -31,7 +31,7 @@
     [LocationManager sharedManager];
     [[FirebaseManager sharedManager] initialiseLostPhonesWithCompletionHandler:^(BOOL success, NSError *error)
     {
-        //Can I do anything here?
+        //Nothing to do here
     }];
     
     return YES;

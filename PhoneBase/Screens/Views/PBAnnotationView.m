@@ -52,25 +52,27 @@ static CGFloat const SideInset = 10;
         [self.calloutView addSubview:detailButton];
         
         [NSLayoutConstraint activateConstraints:@[
-                                                    NSLayoutConstraintMakeAll(identiferLabel, ALHeight, ALEqual, nil, ALHeight, 1.0, LabelHeight, UILayoutPriorityRequired),
-                                                    NSLayoutConstraintMakeAll(identiferLabel, ALTop, ALEqual, self.calloutView, ALTop, 1.0, TopBottomInset, UILayoutPriorityRequired),
-                                                    NSLayoutConstraintMakeAll(identiferLabel, ALLeft, ALEqual, self.calloutView, ALLeft, 1.0, SideInset, UILayoutPriorityRequired),
-                                                    NSLayoutConstraintMakeAll(identiferLabel, ALRight, ALEqual, detailButton, ALLeft, 1.0, 0, UILayoutPriorityRequired),
+                                                  
+            NSLayoutConstraintMakeAll(identiferLabel, ALHeight, ALEqual, nil, ALHeight, 1.0, LabelHeight, UILayoutPriorityRequired),
+            NSLayoutConstraintMakeAll(identiferLabel, ALTop, ALEqual, self.calloutView, ALTop, 1.0, TopBottomInset, UILayoutPriorityRequired),
+            NSLayoutConstraintMakeAll(identiferLabel, ALLeft, ALEqual, self.calloutView, ALLeft, 1.0, SideInset, UILayoutPriorityRequired),
+            NSLayoutConstraintMakeAll(identiferLabel, ALRight, ALEqual, detailButton, ALLeft, 1.0, 0, UILayoutPriorityRequired),
 
-                                                    NSLayoutConstraintMakeAll(addressLabel, ALHeight, ALEqual, nil, ALHeight, 1.0, LabelHeight, UILayoutPriorityRequired),
-                                                    NSLayoutConstraintMakeAll(addressLabel, ALBottom, ALEqual, self.calloutView, ALBottom, 1.0, -TopBottomInset, UILayoutPriorityRequired),
-                                                    NSLayoutConstraintMakeAll(addressLabel, ALLeft, ALEqual, self.calloutView, ALLeft, 1.0, SideInset, UILayoutPriorityRequired),
-                                                    NSLayoutConstraintMakeEqual(addressLabel, ALRight, identiferLabel),
+            NSLayoutConstraintMakeAll(addressLabel, ALHeight, ALEqual, nil, ALHeight, 1.0, LabelHeight, UILayoutPriorityRequired),
+            NSLayoutConstraintMakeAll(addressLabel, ALBottom, ALEqual, self.calloutView, ALBottom, 1.0, -TopBottomInset, UILayoutPriorityRequired),
+            NSLayoutConstraintMakeAll(addressLabel, ALLeft, ALEqual, self.calloutView, ALLeft, 1.0, SideInset, UILayoutPriorityRequired),
+            NSLayoutConstraintMakeEqual(addressLabel, ALRight, identiferLabel),
 
-                                                    NSLayoutConstraintMakeAll(detailButton, ALWidth, ALEqual, nil, ALWidth, 1.0, ButtonSize, UILayoutPriorityRequired),
-                                                    NSLayoutConstraintMakeAll(detailButton, ALHeight, ALEqual, nil, ALHeight, 1.0, ButtonSize, UILayoutPriorityRequired),
-                                                    NSLayoutConstraintMakeEqual(detailButton, ALCenterY, self.calloutView),
-                                                    NSLayoutConstraintMakeAll(detailButton, ALRight, ALEqual, self.calloutView, ALRight, 1.0, -SideInset, UILayoutPriorityRequired),
+            NSLayoutConstraintMakeAll(detailButton, ALWidth, ALEqual, nil, ALWidth, 1.0, ButtonSize, UILayoutPriorityRequired),
+            NSLayoutConstraintMakeAll(detailButton, ALHeight, ALEqual, nil, ALHeight, 1.0, ButtonSize, UILayoutPriorityRequired),
+            NSLayoutConstraintMakeEqual(detailButton, ALCenterY, self.calloutView),
+            NSLayoutConstraintMakeAll(detailButton, ALRight, ALEqual, self.calloutView, ALRight, 1.0, -SideInset, UILayoutPriorityRequired),
 
-                                                    NSLayoutConstraintMakeAll(self.calloutView, ALHeight, ALEqual, nil, ALHeight, 1.0, 50, UILayoutPriorityRequired),
-                                                    NSLayoutConstraintMakeAll(self.calloutView, ALCenterX, ALEqual, self, ALCenterX, 1.0, 0, UILayoutPriorityRequired),
-                                                    NSLayoutConstraintMakeAll(self.calloutView, ALCenterY, ALEqual, self, ALCenterY, 1.0, -45, UILayoutPriorityRequired),
-                                                  ]];
+            NSLayoutConstraintMakeAll(self.calloutView, ALHeight, ALEqual, nil, ALHeight, 1.0, 50, UILayoutPriorityRequired),
+            NSLayoutConstraintMakeAll(self.calloutView, ALCenterX, ALEqual, self, ALCenterX, 1.0, 0, UILayoutPriorityRequired),
+            NSLayoutConstraintMakeAll(self.calloutView, ALCenterY, ALEqual, self, ALCenterY, 1.0, -45, UILayoutPriorityRequired),
+            
+        ]];
         
     }
     return self;    

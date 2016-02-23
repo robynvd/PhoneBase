@@ -104,6 +104,7 @@ static CGFloat const VerticalSpacing = 75;
         NSLayoutConstraintMakeVSpace(self.lostFoundLabel, self.lostFoundSwitch, 5),
         NSLayoutConstraintMakeEqual(self.lostFoundSwitch, ALCenterX, self.view),
         NSLayoutConstraintMakeInset(self.lostFoundSwitch, ALBottom, -20),
+        
     ]];
 }
 
@@ -182,7 +183,8 @@ static CGFloat const VerticalSpacing = 75;
 - (instancetype)initWithPhone:(Phone *)phone andImage:(UIImage *)image
 {
     self = [super init];
-    if (self) {
+    if (self)
+    {
         self.phone =  phone;
         self.imageOfView = image;
     }

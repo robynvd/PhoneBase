@@ -23,10 +23,12 @@
         {
             completionHandler(NO, [NSError errorWithMessage:@"Could not remove phones from the local database"]);
         }
-        else
+        else if (!contextDidSave)
         {
-            completionHandler(YES, nil);
+            completionHandler(NO, nil);
         }
+        else
+            completionHandler(YES, nil);
     }];
 }
 
@@ -66,7 +68,7 @@
         {
             if (error)
             {
-                completionHandler(NO, [NSError errorWithMessage:@"Could not sync a phone wit the database"]);
+                completionHandler(NO, [NSError errorWithMessage:@"Could not sync a phone with the database"]);
             }
             else if (!contextDidSave)
             {

@@ -19,7 +19,8 @@
 
 @implementation FirebaseManager
 
-+ (instancetype)sharedManager {
++ (instancetype)sharedManager
+{
     static FirebaseManager *_sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
